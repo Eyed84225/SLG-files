@@ -1,0 +1,32 @@
+body{
+    background-color: darkgrey;
+    justify-content: center;
+    text-align: center;
+    flex: auto;
+}
+.Avatarholder{
+    display: flex;
+    gap: 25px;
+    overflow: auto;
+    width: 500px;
+    margin: auto;
+    background-color: rgb(195, 103, 211);
+}
+.AvatarPlace{
+    float: left;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    background-color: rgb(115, 206, 232);
+    border: 1px solid black;
+}
+div{
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+}
+img{
+    width: 75px;
+    height: 75px;
+}

@@ -1,0 +1,6 @@
+body{
+    background-color: darkgrey;
+    justify-content: center;
+    text-align: center;
+    flex: auto;
+}

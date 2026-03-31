@@ -1,0 +1,56 @@
+body{
+    background-color: darkgrey;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex: auto;
+}
+div{
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+}
+.Playerholder{
+    display: flex;
+    gap: 25px;
+    overflow: auto;
+    width: 500px;
+    margin: auto;
+    background-color: aqua;
+}
+.Player{
+    float: left;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    background-color: rgb(178, 178, 252);
+    border: 1px solid black;
+}
+#PlayerOneCont.locked{
+    cursor: not-allowed;
+    background-color: gray;
+    pointer-events: none;
+}
+#PlayerTwoCont.locked{
+    cursor: not-allowed;
+    background-color: gray;
+    pointer-events: none;
+}
+#PlayerThreeCont.locked{
+    cursor: not-allowed;
+    background-color: gray;
+    pointer-events: none;
+}
+#PlayerFourCont.locked{
+    cursor: not-allowed;
+    background-color: gray;
+    pointer-events: none;
+}
+img{
+    width: 75px;
+    height: 75px;
+}
+.Hidden{
+    display: none;
+}
