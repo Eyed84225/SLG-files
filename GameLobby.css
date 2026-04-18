@@ -1,0 +1,189 @@
+body{
+    background-color: darkgrey;
+    justify-content: center;
+    text-align: center;
+    flex: auto;
+}div{
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+}
+.Playerholder{
+    display: flex;
+    gap: 25px;
+    overflow: auto;
+    width: 500px;
+    margin: auto;
+    background-color: aqua;
+}
+.Player{
+    float: left;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    background-color: rgb(178, 178, 252);
+    border: 1px solid black;
+}
+img{
+    width: 75px;
+    height: 75px;
+}
+.Hidden{
+    display: none;
+}
+.Selected{
+    cursor: not-allowed;
+    background-color: rgb(237, 88, 88);
+    pointer-events: none;
+}
+/* Alexander's CSS */
+/* Styles for the boxes/icons */
+.boxIcon{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+/* styles for the three boxes */
+.infoBoxes{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.textBox{
+    background-color: rgb(204, 236, 203);
+    border: 3px solid #1b5e20;
+    border-radius: 10px;
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Hover effect */
+.textBox:hover{
+    transform: translate(-8px) scale(1.05);
+    box-shadow: 6px 6px 15px rgba(0,0,0,0.3);
+}
+.scoreCard{
+    position: fixed;
+    left: 50%;
+    bottom: -100%;
+    transform: translateX(-50%);
+    background-color: rgb(204, 236, 203);
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: bottom 0.4s ease;
+}
+#showScorecard:hover{
+    transform: scale(1.05);
+}
+.scoreCard.show{
+    bottom: 0;
+}
+#showScorecard{
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 800px;
+}
+#showScorecard:hover{
+    background-color: #1b5e20;
+}
+.scoreCard h2{
+    text-align: center;
+    color:#1b5e20;
+    margin-bottom: 15px;
+}
+.scoreCard table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.scoreCard th,
+.scoreCard td{
+    border: 1px solid #1b5e20;
+    padding: 8px 12px;
+    text-align: center;
+}
+.scoreCard th{
+    background-color: #2e7d32;
+    color: white;
+}
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 999;
+}
+#overlay.show{
+    opacity: 1;
+    pointer-events: all;
+}
+#closeBtn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+#closeBtn:hover{
+    transform: scale(1.2);
+}
+.overlaySlide{
+    position: fixed; 
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background-color: rgb(204, 236, 203);
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    z-index: 1001;
+    transition: bottom 0.4s ease;
+}
+.overlaySlide.show{
+    bottom: 0;
+}
+.overlaySlide h2{
+    text-align: center;
+    color: #1b5e20;
+}
+.closeOverlay{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+.closeOverlay:hover{
+    transform: scale(1.2);
+}

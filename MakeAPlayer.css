@@ -1,25 +1,59 @@
 body{
-    background-color: darkgrey;
-    justify-content: center;
+    background-color: #ede9e9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
     text-align: center;
-    flex: auto;
+    background: linear-gradient(135deg,#2e7d32,#66bb6a);
+    padding: 8px 10px;
+    max-width: 52%;
+    margin: 80px auto 25px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
+h2{
+    font-size: 38px;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 2px 2px 0 #1b5e20,
+    4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
 .Avatarholder{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
-    overflow: auto;
-    width: 500px;
-    margin: auto;
-    background-color: rgb(195, 103, 211);
+    max-width: 800px;
+    margin: 0 auto 40px auto;
 }
 .AvatarPlace{
-    float: left;
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(145deg,#e8f5e9,#c8e6c9);
+    border-radius: 20px;
+    padding: 20px;
     text-align: center;
-    width: 100px;
-    background-color: rgb(115, 206, 232);
-    border: 1px solid black;
+    border: 3px solid transparent;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3 ease;
+    animation: fadeIn 1s ease forwards;
+}
+.AvatarPlace:hover{
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 0 15px #2e7d32;
+}
+
+.avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.avatar img:hover{
+    transform: scale(1.5);
+    transition: 0.3s ease;
 }
 div{
     padding: 5px;

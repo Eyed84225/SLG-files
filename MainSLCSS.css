@@ -1,6 +1,62 @@
+/* Alexanders revised css */
 body{
-    background-color: darkgrey;
-    justify-content: center;
-    text-align: center;
-    flex: auto;
+	background: linear-gradient(to bottom, #ede9e9, #a5d6a7);
+	font-family: Arial, sans-serif, 'Times New Roman', Times, serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+/* Added this style to make it look like the figma screenshot */
+.welcomeMessage{
+	height: 520px;
+	width: 520px;
+	border-radius: 50%;
+	background:grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	padding:20px;
+    box-sizing: border-box;
+}
+
+.title{
+	font-size: 34px;
+	letter-spacing: 2px;
+	color: white;
+	text-shadow: 2px 2px 0 #1b5e20,
+			4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+.subtitle{
+	color: #e8e8e8;
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.startBtn{
+	padding:  15px 20px;
+	background-color: #1b5e20;
+	border: none;
+	color: white;
+    border-radius: 15px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.startBtn:hover{
+	transform: scale(1.05);
+	background-color: #145a1a;
+}
+
+.groupHolder{
+	border: black 1px solid;
 }

@@ -1,11 +1,25 @@
 <?php
-//the connection to the database to check the group will go here
-//for now the group ID is set 0001 for test purpose
-$GroupID = 0x0001;
-//Input from form
-$GIDInput = $_POST['GIDInput'];
-if($GIDInput == $GroupID){
-    header('Location: SLGMakeALobby.php');
+session_start();
+$welcomeMessage = "";
+$errorMessage = "";
+require_once("SLGDBCon.php");
+if(isset($_SESSION['GroupSesName'])) {
+        $welcomeMessage = $_SESSION['GroupSesName'];
+        } else {
+        echo "No session data found.";
+    }
+if ($_SERVER['REQUEST_METHOD']=='POST'){
+    $GIDInput = $_POST['GIDInput'];
+    $GroupSessionName = $_SESSION["GroupSesName"];
+    $sql = "SELECT * FROM playing_group WHERE group_name = '$GroupSessionName' AND group_code = '$GIDInput';";
+    $result = mysqli_query($db_conn, $sql);
+    $check = mysqli_fetch_array($result);
+
+    if(isset($check)){
+        header('Location: SLGMakeALobby.php');
+    } else {
+        $errorMessage ="Incorrect group code, Please try again";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -18,13 +32,13 @@ if($GIDInput == $GroupID){
     <script src="SLGvalidUser.js"></script>
 </head>
 <body>
-    <h1>Welcome to Shortlinks Golf</h1>
-    <h2>When you are ready to start, login using your group ID</h2>
-    <!-- PlaceHolder for now -->
+    <div><?php echo $errorMessage;?></div>
+    <h1>Welcome to Shortlinks Golf, <?php echo $welcomeMessage?> group!</h1><br>
+    <h2>When you are ready to start, login using your group ID</h2><br>
     <form action="shortLinksIndex.php" name="loginForm" id="LoginForm" method="post" onsubmit="return validUser();">
         <input type="text" id="GIDInput" name="GIDInput" required placeholder="Group ID">
         <br><div id="GIDErr"></div><br>
         <input type="Submit"></input>
     </form>
 </body>
-</html>
+</htm
