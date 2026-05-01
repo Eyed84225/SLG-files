@@ -78,12 +78,27 @@ function CheckStorage() {
     //p1
     if( sessionStorage.getItem("PlayerOneChoice") != null){
         let P1Img = document.getElementById("Player1AvaPickImg");
-        let P1Choice = sessionStorage.getItem("PlayerOneChoice").trim();
+        let P1Choice = sessionStorage.getItem("PlayerOneChoice");
         let P1Name = sessionStorage.getItem("PlayerOneName");
-        // data push to php 
+        //data push
+        const P1Data = {
+            POneAvaChoice: P1Choice,
+            POneNameChoice: P1Name
+        };
         fetch('SLGMakeALobby.php', {
         method: 'POST',
-        body: JSON.stringify({ P1Csettings: P1Choice })
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(P1Data)
+        })
+
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
         // Name Change
         document.getElementById("Player1NamePick").textContent = P1Name;
@@ -154,6 +169,26 @@ function CheckStorage() {
         let P2Img = document.getElementById("Player2AvaPickImg");
         let P2Choice = sessionStorage.getItem("PlayerTwoChoice").trim();
         let P2Name = sessionStorage.getItem("PlayerTwoName");
+        //data oush
+        const P2Data = {
+            PTwoAvaChoice: P2Choice,
+            PTwoNameChoice: P2Name
+        }
+        fetch('SLGMakeALobby.php', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(P2Data)
+        })
+
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
         // Name Change
         document.getElementById("Player2NamePick").textContent = P2Name;
         // Image changes
@@ -223,6 +258,26 @@ function CheckStorage() {
         let P3Img = document.getElementById("Player3AvaPickImg");
         let P3Choice = sessionStorage.getItem("PlayerThreeChoice").trim();
         let P3Name = sessionStorage.getItem("PlayerThreeName");
+        //data push
+        const P3Data = {
+            PThreeAvaChoice: P3Choice,
+            PThreeNameChoice: P3Name
+        }
+        fetch('SLGMakeALobby.php', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(P3Data)
+        })
+
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
         // Name Change
         document.getElementById("Player3NamePick").textContent = P3Name;
         // Image changes
@@ -292,6 +347,26 @@ function CheckStorage() {
         let P4Img = document.getElementById("Player4AvaPickImg");
         let P4Choice = sessionStorage.getItem("PlayerFourChoice").trim();
         let P4Name = sessionStorage.getItem("PlayerFourName");
+        //data push
+        const P4Data = {
+            PFourAvaChoice: P4Choice,
+            PFourNameChoice: P4Name
+        }
+        fetch('SLGMakeALobby.php', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(P4Data)
+        })
+
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
         // Name Change
         document.getElementById("Player4NamePick").textContent = P4Name;
         // Image changes
@@ -361,7 +436,7 @@ function CheckStorage() {
     }
 }
 function Playtime(){
-    window.location.href = "SLGGameLobby.php";
+   window.location.href = "SLGPlayerSelect.php";
 }
 CheckAvaChoice();
 CheckStorage();

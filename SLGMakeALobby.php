@@ -7,17 +7,102 @@ if(isset($_SESSION['GroupSesName'])) {
         } else {
         echo "No session data found.";
     }
-function UpdatePlayer(){
-    $data = json_decode(file_get_contents('php://input'), true) ?: [];
-    if (isset($data['P1Csettings'])) {
-    $_SESSION['P1Csettings'] = $data['P1Csettings'];
-    print_r($_SESSION['P1Csettings']);
-    exit;
-    } else {
-        echo "It biffed";
-    }
-}UpdatePlayer();
 
+$json = file_get_contents('php://input');
+$data = json_decode($json, true);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+//p1
+    if (isset($data['POneAvaChoice'], $data['POneNameChoice'])) {
+        $_SESSION['POneAvaChoice'] = $data['POneAvaChoice'];
+        $_SESSION['POneNameChoice'] = $data['POneNameChoice'];
+
+        echo json_encode([
+            "status" => "success",
+            "received_data1" => $data['POneAvaChoice'],
+            "received_data2" => $data['POneNameChoice']
+        ]);
+        exit;
+    } 
+    // else {
+    //     echo json_encode([
+    //         "status" => "error",
+    //         "message" => "No data received for p1"
+    //     ]);
+    //     exit;
+    // }
+//p2
+    if (isset($data['PTwoAvaChoice'], $data['PTwoNameChoice'])) {
+        $_SESSION['PTwoAvaChoice'] = $data['PTwoAvaChoice'];
+        $_SESSION['PTwoNameChoice'] = $data['PTwoNameChoice'];
+
+        echo json_encode([
+            "status" => "success",
+            "received_data1" => $data['PTwoAvaChoice'],
+            "received_data2" => $data['PTwoNameChoice']
+        ]);
+        exit;
+    } 
+    // else {
+    //     echo json_encode([
+    //         "status" => "error",
+    //         "message" => "No data received for p2"
+    //     ]);
+    //     exit;
+    // }
+//p3
+    if (isset($data['PThreeAvaChoice'], $data['PThreeNameChoice'])) {
+        $_SESSION['PThreeAvaChoice'] = $data['PThreeAvaChoice'];
+        $_SESSION['PThreeNameChoice'] = $data['PThreeNameChoice'];
+
+        echo json_encode([
+            "status" => "success",
+            "received_data1" => $data['PThreeAvaChoice'],
+            "received_data2" => $data['PThreeNameChoice']
+        ]);
+        exit;
+    } 
+    // else {
+    //     echo json_encode([
+    //         "status" => "error",
+    //         "message" => "No data received for p3"
+    //     ]);
+    //     exit;
+    // }
+//p4
+    if (isset($data['PFourAvaChoice'], $data['PFourNameChoice'])) {
+        $_SESSION['PFourData'] = $data['PFourAvaChoice'];
+        $_SESSION['PFourNameChoice'] = $data['PFourNameChoice'];
+
+        echo json_encode([
+            "status" => "success",
+            "received_data1" => $data['PFourAvaChoice'],
+            "received_data2" => $data['PFourNameChoice']
+        ]);
+        exit;
+    } 
+    else {
+        echo json_encode([
+            "status" => "error",
+            "message" => "No data received"
+        ]);
+        exit;
+    }
+    }
+function DbUpdate(){
+    $p1AvaData = $_SESSION['POneAvaChoice'];
+    $p1NameData = $_SESSION['POneNameChoice'];
+    // p2
+    $p2AvaData = $_SESSION['PTwoAvaChoice'];
+    $p2NameData = $_SESSION['PTwoNameChoice'];
+    //p3
+    $p3AvaData = $_SESSION['PThreeAvaChoice'];
+    $p3NameData = $_SESSION['PThreeNameChoice'];
+    //p4
+    $p4AvaData = $_SESSION['PFourAvaChoice'];
+    $p4NameData = $_SESSION['PFourNameChoice'];
+    // sql to check if their is a rec, will update later
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +111,7 @@ function UpdatePlayer(){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make a Lobby</title>
     <link rel="stylesheet" href="MakeALobby.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- Can be set up to be dynamic and only include how many players are in the group -->
@@ -53,7 +139,7 @@ function UpdatePlayer(){
         </div>
     </div>
     <br>
-    <p>When all players are ready, press the button below to play some golf!</p>
+    <p>When all players are ready,<br>press the button below to confirm setup and then step out on to the green!</p>
     <button onclick="Playtime();">Time to Play</button>
     <script src="MakeALobby.js"></script>
 </body>

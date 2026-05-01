@@ -1,40 +1,20 @@
 <?php
 session_start();
-require_once("SLGDBCon.php");
+$ActivePlayer = $_SESSION['ActivePlayer'];
 
-$PlayerArray = [
-    $_SESSION['POneNameChoice'], 
-    $_SESSION['PTwoNameChoice'], 
-    $_SESSION['PThreeNameChoice'], 
-    $_SESSION['PFourNameChoice']
-    ];
-$currentPlayer = 0; 
-function setActivePlayer($Player){
-    return $Player;
-}
-
-$ActivePlayer = setActivePlayer($PlayerArray[$currentPlayer]);
-$_SESSION['ActivePlayer'] = $ActivePlayer;
-function UpdateActivePlayer(){
-    $currentPlayer = $currentPlayer + 1;
-    // if ($currentPlayer == sizeof($PlayerArray)){
-    //     //cylces the loop
-    //     $currentPlayer = 0;
-    // }
-    return $currentPlayer;
-}
-$db_conn->close();
+//call to data/api for tracker
+// function CalltoBallTracker(){
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actual lobby</title>
-    <link rel="stylesheet" href="GameLobby.css">
+    <title>SLGCompleteShot</title>
+    <link rel="stylesheet" href="SLGCompleteShot.css">
 </head>
 <body>
-    <!-- <h1>Short Links Golf</h1> -->
     <div class="banners">
         <div class="topBox">
 	        <h2><?php echo $ActivePlayer?> is active player!</h2>
@@ -48,32 +28,8 @@ $db_conn->close();
         </div>
     </div>
 
-    <div class="Playerholder">
-        <div class="Player" id="PlayerOneCont" name="Player1">Player One
-            <div id="Player1NamePick"></div>
-            <div id="Player1AvaPick"><img class="Hidden" id="Player1AvaPickImg" src="" alt=""></div>
-        </div>
-
-        <div class="Player" id="PlayerTwoCont" name="Player2">Player Two
-            <div id="Player2NamePick"></div>
-            <div id="Player2AvaPick"><img class="Hidden" id="Player2AvaPickImg" src="" alt=""></div>
-        </div>
-            
-        <div class="Player" id="PlayerThreeCont" name="Player3">Player Three
-            <div id="Player3NamePick"></div>
-            <div id="Player3AvaPick"><img class="Hidden" id="Player3AvaPickImg" src="" alt=""></div>
-        </div>
-        <div class="Player" id="PlayerFourCont" name="Player4">Player Four
-            <div id="Player4NamePick"></div>
-            <div id="Player4AvaPick"><img class="Hidden" id="Player4AvaPickImg" src="" alt=""></div>
-        </div>
-    </div>
-    <br>
-    <button id="shotReady" onclick=ShotReadyUp();><?php echo $ActivePlayer?> is ready to hit</button>
-    <br>
-    <!-- Alexander's Overlays -->
-    <!-- Scorecard button -->
-    <button id="showScorecard">Scorecard</button>
+        <button id="completeShot" onclick="CompletedShot();"><?php echo $ActivePlayer?> has Completed his shot</button>
+        <button id="showScorecard">Scorecard</button>
 
     <!-- Overlay for the scoreboard -->
     <div id="overlay"></div>
@@ -201,6 +157,6 @@ $db_conn->close();
         <p>You hit the green, but then<br>came to rest 5yds beyond the green.</p>
     </div>
 
-    <script src="SLGGameLobby.js"></script>
+    <script src="SLGCompleteShot.js"></script>
 </body>
 </html>

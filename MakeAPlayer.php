@@ -31,7 +31,7 @@ echo "<script>console.log('$Username');</script>";
         </div>
         <div class="AvatarPlace" id="AvaFour" onclick="Avatar4Pick();">
             Avatar Four<br>
-            <img class="avatar" id="AvatarFourPic" src="Avatarf_04mouthclosed.png" alt="Female Avatar 2">
+            <img class="avatar" id="AvatarFourPic" src="AvatarF_04mouthclosed.png" alt="Female Avatar 2">
         </div>
         <div class="AvatarPlace" id="AvaFive" onclick="Avatar5Pick();">
             Avatar Five<br>

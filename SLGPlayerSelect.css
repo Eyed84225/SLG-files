@@ -1,11 +1,10 @@
 body{
-    margin: 0;
-    height: 100vh;
 	background: linear-gradient(to bottom, #ede9e9, #a5d6a7);
     justify-content: center;
     text-align: center;
     align-items: center;
     flex: auto;
+    height: 100vh;
 }
 div{
     padding: 5px;

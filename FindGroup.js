@@ -10,7 +10,7 @@ function Firstgroup(groupName){
         success: function(response){
             console.log("Working");
             console.log(response);
-            window.location.href = 'shortLinksIndex.php';
+            window.location.href = 'SLGIndex.php';
         },
         error: function(){
             console.log("It biffed");
@@ -29,7 +29,7 @@ function Secondgroup(groupName){
         success: function(response){
             console.log("Working");
             console.log(response);
-            window.location.href = 'shortLinksIndex.php';
+            window.location.href = 'SLGIndex.php';
         },
         error: function(){
             console.log("It biffed");
@@ -48,7 +48,7 @@ function Thirdgroup(groupName){
         success: function(response){
             console.log("Working");
             console.log(response);
-            window.location.href = 'shortLinksIndex.php';
+            window.location.href = 'SLGIndex.php';
         },
         error: function(){
             console.log("It biffed");

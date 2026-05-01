@@ -1,51 +1,33 @@
 body{
+    margin: 0;
 	background: linear-gradient(to bottom, #ede9e9, #a5d6a7);
-    justify-content: center;
-    text-align: center;
     height: 100vh;
-    flex: auto;
-}div{
-    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     justify-content: center;
-}
-.Playerholder{
-    display: flex;
-    gap: 25px;
-    overflow: auto;
-    width: 500px;
-    margin: auto;
-}
-.Player{
-    float: left;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100px;
-    background-color: rgb(178, 178, 252);
-    border: 1px solid black;
 }
-img{
-    width: 75px;
-    height: 75px;
+
+#liveClock{
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1b5e20;
+    background-color: wheat;
+    padding: 8px 12px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1020;
 }
-.Hidden{
-    display: none;
-}
-.Selected{
-    cursor: not-allowed;
-    background-color: rgb(237, 88, 88);
-    pointer-events: none;
-}
-/* Alexander's CSS */
-/* Styles for the boxes/icons */
+
+
 .banners{
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    margin-bottom: 20px;
-
 }
 
 /* .topBox{
@@ -65,10 +47,12 @@ img{
     justify-content: center;
     text-align: center;
     background: linear-gradient(135deg,#2e7d32,#66bb6a);
-    padding: 25px 20px;
-    max-width: 400px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 10px auto 15px auto;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
 }
 
 
@@ -83,12 +67,11 @@ img{
     color: white;
     text-shadow: 2px 2px 0 #1b5e20,
     4px 4px 8px rgba(0, 0, 0, 0.4); 
-
 }
 
 .activePlayerText{
-    width: 250px;
-    height: 150px;
+    width: 530px;
+    height: 250px;
         background: linear-gradient(145deg,#e8f5e9,#c8e6c9);
     border-radius: 15px;
     position: relative;
@@ -97,7 +80,6 @@ img{
     align-items: center;
     gap: 20px;
     padding: 20px 20px 20px 240px;
-    
 }
 
 .halfMoon{
@@ -166,11 +148,11 @@ img{
 }
 
 /* Styles the button above the Scorecard */
-#shotReady{
+#completeShot{
     display: block;
     font-weight: bold;
     color: white;
-    margin: 15px auto;
+    margin: 20px auto 15px auto;
     padding: 10px 20px;
     width: 90%;
     max-width: 800px;
@@ -181,7 +163,27 @@ img{
     transition: all 0.25s ease;
 }
 
-#shotReady:hover{
+#ReplayBTN{
+    display: block;
+    font-weight: bold;
+    color: white;
+    margin: 20px auto 15px auto;
+    padding: 10px 20px;
+    width: 90%;
+    max-width: 800px;
+    background: #2e7d32;
+    border-radius: 15px;
+    box-shadow: none;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+#ReplayBTN:hover{
+    background-color: #1b5e20;
+}
+
+
+#completeShot:hover{
     background-color: #1b5e20;
 }
 
@@ -204,15 +206,18 @@ img{
 }
 
 #scoreCard h2{
-    margin-top: 25px;
+    margin-top: 15px;
     text-align: center;
     color:#1b5e20;
     margin-bottom: 15px;
 }
 
 #scoreCard table{
-    width: 100%;
+    width: 75%;
     border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #scoreCard th,
@@ -284,4 +289,11 @@ img{
 
 .closeOverlay:hover{
     transform: scale(1.2);
+}
+
+input[type="text"]{
+    border-radius: 12px;
+    border: 1px solid #8fe18c;
+    text-align: center;
+
 }

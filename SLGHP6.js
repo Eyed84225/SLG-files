@@ -232,14 +232,14 @@ let OrderArray = [
 ]
 console.log(OrderArray);
 sessionStorage.setItem("PlayerOrder", JSON.stringify(OrderArray));
-function ShotReadyUp(){
-    if(sessionStorage.getItem("PlayerSelected") == OrderArray[0][1]){
-        window.location.href = 'SLGReadyShot.php'
-    } else{
-        console.log("Not your turn")
-    }  
-}
-setTimeout(ShotReadyUp, 3000);
+// function ShotReadyUp(){
+//     if(sessionStorage.getItem("PlayerSelected") == OrderArray[0][1]){
+//         window.location.href = 'SLGReadyShot.php'
+//     } else{
+//         console.log("Not your turn")
+//     }  
+// }
+// setTimeout(ShotReadyUp, 3000);
 // let PlayOrderKeeper = 0;
 // var PlayerSelect
 // function PlayerOneReady(){

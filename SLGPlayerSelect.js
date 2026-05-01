@@ -3,8 +3,6 @@ const PlayerTwoCon = document.getElementById('PlayerTwoCont');
 const PlayerThreeCon = document.getElementById('PlayerThreeCont');
 const PlayerFourCon = document.getElementById('PlayerFourCont');
 function CheckStorage() {
-    // banner setup
-    let PlayerImg = document.getElementById("PImg");
     // Player Setup Options
     if( sessionStorage.getItem("PlayerOneChoice") != null){
         let P1Img = document.getElementById("Player1AvaPickImg");
@@ -15,56 +13,44 @@ function CheckStorage() {
         // Image changes
         if(P1Choice === "Avatar One"){
             P1Img.src = "AvatarM_01mouthclosed.png";
-            PlayerImg.src = "AvatarM_01mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Two"){
             P1Img.src = "AvatarF_02mouthclosed.png";
-            PlayerImg.src = "AvatarF_02mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Three"){
             P1Img.src = "AvatarM_03.png";
-            PlayerImg.src = "AvatarM_03.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Four"){
             P1Img.src = "AvatarF_04mouthclosed.png";
-            PlayerImg.src = "AvatarF_04mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Five"){
             P1Img.src = "AvatarA_05mouthclosed.png";
-            PlayerImg.src = "AvatarA_05mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Six"){
             P1Img.src = "AvatarA_06mouthclosed.png";
-            PlayerImg.src = "AvatarA_06mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Seven"){
             P1Img.src = "AvatarA_07mouthclosed.png";
-            PlayerImg.src = "AvatarA_07mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Eight"){
             P1Img.src = "AvatarA_08mouthclosed.png";
-            PlayerImg.src = "AvatarA_08mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Nine"){
             P1Img.src = "AvatarA_09mouthclosed.png";
-            PlayerImg.src = "AvatarA_09mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
         if(P1Choice === "Avatar Ten"){
             P1Img.src = "AvatarA_10mouthclosed.png";
-            PlayerImg.src = "AvatarA_10mouthclosed.png";
             P1Img.classList.remove('Hidden')
         }
-    } else {
-        console.log("Done and dusted")
     }
     //p2
     if( sessionStorage.getItem("PlayerTwoChoice") != null){
@@ -114,9 +100,6 @@ function CheckStorage() {
             P2Img.src = "AvatarA_10mouthclosed.png";
             P2Img.classList.remove('Hidden')
         }
-    } else{
-        console.log("Done and dusted")
-
     }
     //p3
     if( sessionStorage.getItem("PlayerThreeChoice") != null){
@@ -166,8 +149,6 @@ function CheckStorage() {
             P3Img.src = "AvatarA_10mouthclosed.png";
             P3Img.classList.remove('Hidden')
         }
-    } else {
-        console.log("Done and dusted")
     }
     //p4
     if( sessionStorage.getItem("PlayerFourChoice") != null){
@@ -224,128 +205,23 @@ function CheckStorage() {
 }
 CheckStorage();
 
-let OrderArray = [
-    ["1", sessionStorage.getItem("PlayerOneName")],
-    ["2", sessionStorage.getItem("PlayerTwoName")],
-    ["3", sessionStorage.getItem("PlayerThreeName")],
-    ["4", sessionStorage.getItem("PlayerFourName")],
-]
-console.log(OrderArray);
-sessionStorage.setItem("PlayerOrder", JSON.stringify(OrderArray));
-function ShotReadyUp(){
-    if(sessionStorage.getItem("PlayerSelected") == OrderArray[0][1]){
-        window.location.href = 'SLGReadyShot.php'
-    } else{
-        console.log("Not your turn")
-    }  
+function PlayerOneSelect(){
+    let P1Name = sessionStorage.getItem("PlayerOneName")
+    sessionStorage.setItem("PlayerSelected", P1Name);
+    window.location.href = "SLGGameLobby.php";
 }
-setTimeout(ShotReadyUp, 3000);
-// let PlayOrderKeeper = 0;
-// var PlayerSelect
-// function PlayerOneReady(){
-//     PlayerSelect = 1;
-//     sessionStorage.setItem("PlayerSelectRec", PlayerSelect);
-//     PlayOrder();
-//     PlayerOneCon.classList.add('Selected')
-// }
-// function PlayerTwoReady(){
-//     PlayerSelect = 2;
-//     sessionStorage.setItem("PlayerSelectRec", PlayerSelect);
-//     PlayOrder();
-//     PlayerTwoCon.classList.add('Selected')
-// }
-// function PlayerThreeReady(){
-//     PlayerSelect = 3;
-//     sessionStorage.setItem("PlayerSelectRec", PlayerSelect);
-//     PlayOrder();
-//     PlayerThreeCon.classList.add('Selected')
-// }
-// function PlayerFourReady(){
-//     PlayerSelect = 4;
-//     sessionStorage.setItem("PlayerSelectRec", PlayerSelect);
-//     PlayOrder();
-//     PlayerFourCon.classList.add('Selected')
-// }
-// function PlayOrder(){
-//     if(PlayOrderKeeper == 0){
-//         let First = sessionStorage.getItem("PlayerSelectRec");
-//         sessionStorage.setItem("FirstPlayer", First);
-//         OrderArray[0] = sessionStorage.getItem("FirstPlayer");
-//         PlayOrderKeeper = PlayOrderKeeper + 1;
-//         console.log("First up is Player" + OrderArray[0]);
-//         sessionStorage.removeItem("PlayerSelectRec");
-//         return;
-//     }
-//     if(PlayOrderKeeper == 1){
-//         let Second = sessionStorage.getItem("PlayerSelectRec");
-//         sessionStorage.setItem("SecondPlayer", Second);
-//         OrderArray[1] = sessionStorage.getItem("SecondPlayer");
-//         PlayOrderKeeper = PlayOrderKeeper + 1;
-//         console.log("Second up is Player" + OrderArray[1]);
-//         sessionStorage.removeItem("PlayerSelectRec");
-//         return;
-//     }
-//     if(PlayOrderKeeper == 2){
-//         let Third = sessionStorage.getItem("PlayerSelectRec");
-//         sessionStorage.setItem("ThirdPlayer", Third);
-//         OrderArray[2] = sessionStorage.getItem("ThirdPlayer");
-//         PlayOrderKeeper = PlayOrderKeeper + 1;
-//         console.log("Third up is Player" + OrderArray[2]);
-//         sessionStorage.removeItem("PlayerSelectRec");
-//         return;
-//     }
-//     if(PlayOrderKeeper == 3){
-//         let Fourth = sessionStorage.getItem("PlayerSelectRec");
-//         sessionStorage.setItem("FourthPlayer", Fourth);
-//         OrderArray[3] = sessionStorage.getItem("FourthPlayer");
-//         PlayOrderKeeper = PlayOrderKeeper + 1;
-//         console.log("Fourth up is Player" + OrderArray[3]);
-//         sessionStorage.removeItem("PlayerSelectRec");
-//     }
-//     if(PlayOrderKeeper == 4){
-//         console.log("Time to playyyyyyy")
-//     }
-//     console.log(OrderArray);
-// }
-//Alexanders JS
-// elements for my scorecard
-const overlay = document.getElementById("overlay");
-
-const scoreCard = document.getElementById("scoreCard");
-const faqOverlay = document.getElementById("faqOverlay");
-const courseOverlay = document.getElementById("courseOverlay");
-const tipsOverlay = document.getElementById("tipsOverlay");
-
-document.getElementById("showScorecard")
-    .addEventListener("click", () => openOverlay(scoreCard));
-
-document.getElementById("faq")
-    .addEventListener("click", () => openOverlay(faqOverlay));
-
-
-document.getElementById("golf")
-    .addEventListener("click", () => openOverlay(courseOverlay));
-
-document.getElementById("tips")
-    .addEventListener("click", () => openOverlay(tipsOverlay));
-
-
-// function to open the overlays
-function openOverlay(panel){
-    closeAll();
-    panel.classList.add("show");
-    overlay.classList.add("show");
+function PlayerTwoSelect(){
+    let P2Name = sessionStorage.getItem("PlayerTwoName")
+    sessionStorage.setItem("PlayerSelected", P2Name);
+    window.location.href = "SLGGameLobby.php";
 }
-
-// function to close the overlays
-function closeAll(){
-    document.querySelectorAll(".overlayPanel")
-        .forEach(p => p.classList.remove("show"));
-    overlay.classList.remove("show");
+function PlayerThreeSelect(){
+    let P3Name = sessionStorage.getItem("PlayerThreeName")
+    sessionStorage.setItem("PlayerSelected", P3Name);
+    window.location.href = "SLGGameLobby.php";
 }
-
-// close button
-document.querySelectorAll(".closeOverlay")
-    .forEach(btn => btn.addEventListener("click", closeAll));
-
-overlay.addEventListener("click", closeAll);
+function PlayerFourSelect(){
+    let P4Name = sessionStorage.getItem("PlayerFourName")
+    sessionStorage.setItem("PlayerSelected", P4Name);
+    window.location.href = "SLGGameLobby.php";
+}

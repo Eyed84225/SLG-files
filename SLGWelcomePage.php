@@ -7,20 +7,26 @@ require_once("SLGDBCon.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
-    <link rel="stylesheet" href="MainSLCSS.css">
+    <link rel="stylesheet" href="SLGWelcomePage.css">
 </head>
 <body>
-    <body>
     <div class="welcomeMessage">
         <h1 class="title">Welcome to the Short Links Companion App</h1>
         <p class="subtitle">We are excited to have you here and can't wait to host your group on the fairway</p>
-        <button class="startBtn" onclick="LoadIndex();">Tap to Begin</button>
+        <button class="startBtn" id="startBtn">Tap to Begin</button>
     </div>
 
     <script>
-        function LoadIndex(){
-            window.location.href = 'SLGFindGroup.php';
-        }
+        const clickButton = new Audio('Golf_Clubnoise.mp3');
+
+        document.getElementById('startBtn').addEventListener('click', () => {
+            clickButton.currentTime = 0;
+            clickButton.play();
+
+            setTimeout(() => {
+                window.location.href = 'SLGFindGroup.php';
+            }, 300);
+        });
     </script>
 </body>
 </html>
